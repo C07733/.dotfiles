@@ -1,0 +1,39 @@
+! special
+*.foreground:   #e6e6e6
+*.background:   #1a1a1a
+*.cursorColor:  #e6e6e6
+
+! black
+*.color0:       #262626
+*.color8:       #333333
+
+! red
+*.color1:       #ff5439
+*.color9:       #ff664c
+
+! green
+*.color2:       #449853
+*.color10:      #40c561
+
+! yellow
+*.color3:       #d9d96a
+*.color11:      #feff64
+
+! blue
+*.color4:       #6aa4e3
+*.color12:      #7cb1ef
+
+! magenta
+*.color5:       #cc6bc7
+*.color13:      #f980f0
+
+! cyan
+*.color6:       #00ad8f
+*.color14:      #18d4b4
+
+! white
+*.color7:       #a6a6a6
+*.color15:      #d9d9d9
+
+Xcursor.theme: Bibata-Original-Classic
+Xcursor.size: 16

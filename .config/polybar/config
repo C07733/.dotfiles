@@ -1,0 +1,245 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+
+[bar/example]
+
+tray-position = none
+width =  100%
+height = 23
+padding-left =1
+padding-right =0
+enable-ipc = true
+;fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+bottom = false
+;border-top-size = 5
+border-bottom-size = 4
+;border-top-color = ${colors.background}
+border-bottom-color = ${colors.color8}
+override-redirect = true
+
+wm-restack = bspwm
+
+modules-left = bspwm
+
+modules-center = time
+
+modules-right = cpu empty-space mem updates powermenu
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=14;3
+font-1 = JetBrainsMono Nerd Font:size=14;4
+font-2 = Material Design Icons:style=Bold:size=9;3
+font-3 = unifont:fontformat=truetype:size=9;3
+
+line-size = 3
+
+[module/empty-space]
+type = custom/text
+content = "  "
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = false
+inline-mode = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+format-suffix = 
+format-suffix-foreground = ${colors.color0}
+format-suffix-background = ${colors.background}
+format-prefix = 
+format-prefix-foreground = ${colors.color0}
+format-prefix-background = ${colors.background}
+
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+ws-icon-default = ""
+
+;label-separator = ""
+;label-separator-background = ${colors.color0}
+
+label-focused =  "  "  
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.color0}
+label-focused-padding = 0
+
+label-occupied = "  " 
+label-occupied-foreground = ${colors.foreground} 
+label-occupied-background = ${colors.color0}
+label-occupied-padding = 0
+
+label-empty = "  "
+label-empty-foreground =   ${colors.foreground}
+label-empty-background = ${colors.color0}
+label-empty-padding = 0
+
+label-urgent = "  "
+label-urgent-foreground = ${colors.color1}
+label-urgent-background = ${colors.color0}
+label-urgent-padding = 0
+
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+master-mixer = Master
+interval = 5
+format-volume = <ramp-volume> 
+;format-volume = <format-muted-prefix>
+ramp-volume-0 = "  " 
+ramp-volume-1 = "  " 
+ramp-volume-2 = "  " 
+format-muted-prefix = "  "
+
+[module/time]
+type = internal/date
+interval = 60
+
+format = <label>
+
+format-suffix = 
+format-suffix-foreground = ${colors.color0}
+format-suffix-background = ${colors.background}
+format-prefix = 
+format-prefix-foreground = ${colors.color0}
+format-prefix-background = ${colors.background}
+
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+format-background = ${colors.color0}
+format-foreground = ${colors.color15}
+
+date =  %H:%M%{F-}
+time-alt =  %a, %b %d%{F-}
+
+label = %date%%time%
+
+[module/polypomo]
+type = custom/script
+
+exec = ~/.config/polybar/modules/polypomo/polypomo
+tail = true
+
+label = %output%
+click-left = ~/.config/polybar/modules/polypomo/polypomo toggle
+click-right = ~/.config/polybar/modules/polypomo/polypomo end
+click-middle = ~/.config/polybar/modules/polypomo/polypomo lock
+scroll-up = ~/.config/polybar/modules/polypomo/polypomo time +60
+scroll-down = ~/.config/polybar/modules/polypomo/polypomo time -60
+
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = <label>
+format-prefix = "力" 
+label = %output% MB
+label-padding = 1
+format-prefix-foreground = ${colors.color11}
+
+[module/updates]
+type = custom/script
+exec = checkupdates 2>/dev/null | wc -l;
+format = <label>
+interval = 4600 
+label ="  %output%"  
+label-padding = 1
+label-foreground = ${colors.color10}
+
+[module/powermenu]
+type = custom/text 
+content ="  "
+content-background = ${colors.color0}
+content-padding = 0
+click-left = doas zzz &
+content-foreground = ${colors.color1}
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = "󰤪  " 
+label-connected-foreground = #A3BE8C 
+
+[module/volume]
+type = custom/script
+exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
+format = <label>
+internal = 5.0
+label = %output% 
+label-foreground = #BF616A
+label-padding = 1
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+format-prefix = "  "
+label = %percentage%
+format-prefix-foreground = #61afef
+label-foreground =   #D8DEE9
+format-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format =  "龍 <label>" 
+
+format-suffix = 
+format-suffix-foreground = #2a1f36
+format-suffix-background = ${colors.background}
+format-prefix = 
+format-prefix-foreground = #2a1f36
+format-prefix-background = ${colors.background}
+
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+label = CPU %percentage%%
+
+format-background = #2a1f36
+format-foreground = ${colors.color13}

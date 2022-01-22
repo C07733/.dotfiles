@@ -1,0 +1,47 @@
+#! /bin/sh
+
+xrdb ~/.Xresources
+xsetroot -cursor_name left_ptr
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+btops &
+# bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         3
+bspc config window_gap          10
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config ignore_ewmh_focus 	 true
+
+#colors
+
+. "${HOME}/.cache/wal/colors.sh"
+
+bspc config active_border_color "$foreground"
+bspc config normal_border_color "$color8"
+bspc config focused_border_color "$foreground"
+bspc config presel_feedback_color "$color3"
+
+# autostart
+~/.fehbg &
+
+~/.config/polybar/launch.sh &
+bspc config top_padding 28 &
+
+picom &
+flashfocus &
+
+kitty &
+
+firefox
+
+bspc rule -a mpv \
+     state=floating sticky=on follow=off focus=on \
+     rectangle=640x360+2760+1040
+bspc rule -a "*:Toolkit:Picture-in-Picture" \
+     state=floating sticky=on follow=off focus=on \
+     rectangle=640x360+2760+1040
+
