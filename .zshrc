@@ -26,4 +26,32 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# ???
+
+eval "$(zoxide init zsh)"
+
+# Aliases 
 alias config='/usr/bin/git --git-dir=/home/usr01/.dotfiles/ --work-tree=/home/usr01'
+
+alias ls=exa
+
+alias rm=trash
+
+alias c=clear
+
+alias mount='mount |column -t'
+
+alias h='history'
+alias j='jobs -l'
+
+alias vi='nvim'
+alias vim='nvim'
+
+alias e='nvim'
+alias se='doas nvim'
+
+alias cd='z'
+
+alias cat='pygmentize -g'
