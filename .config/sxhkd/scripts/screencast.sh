@@ -5,7 +5,7 @@ if pidof ffmpeg
 
     notify-send 'Stopped Recording!' --icon=dialog-information
   else 
-    slop=$(slop -b -3 -c 0.486,0.694,0.937,0.3 -l -f "%x %y %w %h")
+    slop=$(slop -b -3 -c 1,0.4,0.298,0.3 -l -f "%x %y %w %h")
 
     read -r X Y W H < <(echo $slop)
 

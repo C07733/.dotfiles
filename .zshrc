@@ -55,3 +55,10 @@ alias se='doas nvim'
 alias cd='z'
 
 alias cat='pygmentize -g'
+
+# These ain't working
+
+#alias mv='mv -i'
+#alias cp='cp -i'
+#alias ln='ln -i'
+

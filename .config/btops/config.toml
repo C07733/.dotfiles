@@ -1,4 +1,39 @@
-min = 1
-max = 10
+
+# This config is focused on classified names.
+#
+# When a new client is spawned, it checks its name against
+# any of the classifiers.  If there's a match, it will use
+# the name specified.  If not, the desktop name will be 
+# a space separated string of opened clients.  All empty 
+# desktops will use the constant name
+
 remove-empty = true
-renamers = ["numeric"]
+append-when-occupied = true
+renamers = ["classified", "client", "constant"]
+
+[names]
+constant = ""
+
+[[names.classified]]
+"comms" = ["discord", "TelegramDesktop"]
+
+[[names.classified]]
+"music" = ["YouTube Music"]
+
+[[names.classified]]
+"files" = ["ranger", "Org.gnome.Nautilus"]
+
+[[names.classified]]
+"web" = ["Chromium", "firefox"]
+
+[[names.classified]]
+"games" = ["steam", "Dolphin-emu"]
+
+[[names.classified]]
+"comms" = ["discord", "TelegramDesktop"]
+
+[[names.classified]]
+"config" = ["lxappearance"]
+
+[[names.classified]]
+"terminal" = ["kitty", "xterm", "URxvt"]
