@@ -31,17 +31,17 @@ bspc config presel_feedback_color "$color3"
 ~/.config/polybar/launch.sh &
 bspc config top_padding 28 &
 
-picom &
-flashfocus &
+pgrep -x picom > /dev/null || picom &
+pgrep -x flashfocus > /dev/null || flashfocus &
 
 kitty &
 
-firefox
+# firefox
 
 bspc rule -a mpv \
      state=floating sticky=on follow=off focus=on \
-     rectangle=640x360+2760+1040
+     rectangle=640x360+1920+1080
 bspc rule -a "*:Toolkit:Picture-in-Picture" \
      state=floating sticky=on follow=off focus=on \
-     rectangle=640x360+2760+1040
+     rectangle=640x360+1920+1080
 
