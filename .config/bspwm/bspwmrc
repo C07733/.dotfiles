@@ -42,5 +42,4 @@ bspc rule -a feh state=floating sticky=off follow=off center=true rectangle=640x
 
 bspc rule -a firefox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
 
-
-
+bspc config ignore_ewmh_focus true
