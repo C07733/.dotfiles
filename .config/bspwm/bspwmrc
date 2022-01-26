@@ -36,6 +36,8 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 
 kitty &
 
+hideIt.sh -N 'polybar-example_HDMI2' -S -d top -p 3
+
 bspc rule -a mpv state=floating sticky=on follow=off focus=on 
 
 bspc rule -a feh state=floating sticky=off follow=off center=true rectangle=640x360+0+0

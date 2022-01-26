@@ -1,18 +1,23 @@
+# WM Independent hotkeys
 
-# wm independent hotkeys
-#
-
-# terminal emulator
+# Terminal emulator
 super + Return
 	kitty
 
-# program launcher
+# Program launcher
 super + @space
 	~/.config/rofi/bin/launcher_slate
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+
+# Reload sxhkdrc and config files
+super + pause
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+#Hide-show polybar
+super + y
+      {polybar-msg cmd toggle; bspc config top_padding 0 ,\
+      polybar-msg cmd toggle; bspc config top_padding 28 }
+
 
 #
 # bspwm hotkeys
@@ -26,13 +31,14 @@ super + alt + {q,r}
 super + {_,shift + }c
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
-#super + m
-#	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
+
+# TODO send to biggest window in desktop
+
+# TODO make the shortcut bellow focus on the workspace it's been sent to
 
 # swap the current node and the biggest window
 super + g
@@ -41,6 +47,8 @@ super + g
 #
 # state/flags
 #
+
+# TODO change these to toggles
 
 # set the window state
 super + {t,shift + t,s,f}
@@ -104,12 +112,11 @@ super + ctrl + {1-9}
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
-# move/resize
-#
+# --- Moving and resizing
 
+# Smart resize, shrinks depending on location
 super + alt + {Left,Down,Up,Right}
-  n=10; \
+  n=15; \
   { d1=left;   d2=right;  dx=-$n; dy=0;   \
   , d1=bottom; d2=top;    dx=0;   dy=$n;  \
   , d1=top;    d2=bottom; dx=0;   dy=-$n; \
@@ -117,25 +124,37 @@ super + alt + {Left,Down,Up,Right}
   } \
   bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
 
-
-# expand a window by moving one of its side outward
-#super + alt + {h,j,k,l}
-#	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
+# Window contraction for edge cases (floating windows and alike)
 super + alt + control + {Left,Down,Up,Right}
-	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
+	bspc node -z {right -15 0,top 0 15,bottom 0 -15,left 15 0}
 
-# move a floating window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+# --- Screenshots and screencasting
 
-# Screenshots and screencasting
+# Screenshot area
+
 super + shift  + s
          ~/.config/sxhkd/scripts/screenshot.sh
+
+# Record area
 
 super + shift + r
          ~/.config/sxhkd/scripts/screencast.sh
 
+# Fullscreen screenshot
+
 Print
         shotgun -g $(xrandr |awk '$0 ~ "*" {print $1}') - | xclip -t 'image/png' -selection clipboard
+
+# --- Others
+
+# Clipmenu
+alt + v
+    CM_LAUNCHER=rofi clipmenu \
+        -location 1 \
+        -m -3 \
+        -no-show-icons \
+        -theme-str '* \{ font: 10px; \}' \
+        -theme-str 'listview \{ spacing: 0; \}' \
+        -theme-str 'window \{ width: 20em; \}'
+
+
