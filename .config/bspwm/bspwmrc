@@ -29,14 +29,13 @@ bspc config presel_feedback_color "$color3"
 ~/.fehbg &
 
 ~/.config/polybar/launch.sh &
-bspc config top_padding 28 &
+~/.config/bspwm/hideAway.sh &
+hideIt.sh -N 'polybar-example_HDMI2' -t 
 
 pgrep -x picom > /dev/null || picom &
 pgrep -x flashfocus > /dev/null || flashfocus &
 
 kitty &
-
-hideIt.sh -N 'polybar-example_HDMI2' -S -d top -p 3
 
 bspc rule -a mpv state=floating sticky=on follow=off focus=on 
 
