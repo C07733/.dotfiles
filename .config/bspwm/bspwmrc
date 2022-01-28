@@ -36,9 +36,9 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 
 # Polybar
 
-sh ~/.config/polybar/launch.sh 
-
 # --- TODO Set workstations up
+
+~/.config/polybar/launch.sh
 
 kitty &
 
@@ -52,9 +52,14 @@ bspc rule -a firefox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
 
 bspc rule -a 'YouTube Music' sticky=on state=floating rectangle=990x660+10+38
 
-sleep 5 # --- TODO Replace this for a find Polybar script
+# --- Check if polybar is running and then activate the ability to hide it
+# This is a hack because polybar is funky...?
 
-sh ~/.config/bspwm/scripts/hideAway.sh
-
-hideIt.sh -N 'polybar-example_HDMI2' -t & touch /tmp/.toggle 
+until pidof polybar
+do
+    until hideIt.sh -N '^polybar-example_HDMI2$' -S -d top -p 0
+  do
+    hideIt.sh -N '^polybar-example_HDMI2$' -t
+  done
+done
 
