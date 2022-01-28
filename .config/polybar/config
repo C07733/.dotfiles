@@ -110,7 +110,7 @@ label-empty-padding = 0
 label-urgent = %icon%
 label-urgent-foreground = ${colors.color1}
 label-urgent-background = ${colors.color0}
-label-urgent-padding = 1
+label-urgent-padding = 0
 
 format = <label-state> <label-mode>
 
@@ -180,9 +180,8 @@ scroll-down = ~/.config/polybar/modules/polypomo/polypomo time -60
 type = custom/script
 exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
 format = <label>
-format-prefix = ""
-label = %output% MB
-label-padding = 1
+format-prefix = "  "
+label = "%output% MB "  
 format-prefix-foreground = ${colors.color11}
 
 [module/updates]
@@ -190,15 +189,13 @@ type = custom/script
 exec = checkupdates 2>/dev/null | wc -l;
 format = <label>
 interval = 4600 
-label =" %output%"  
-label-padding = 1
+label ="  %output% "  
 label-foreground = ${colors.color10}
 
 [module/powermenu]
 type = custom/text 
 content ="  "
 content-background = ${colors.color0}
-content-padding = 0
 click-left = doas zzz &
 content-foreground = ${colors.color1}
 

@@ -10,10 +10,11 @@ super + @space
 
 
 # Reload sxhkdrc and config files
-super + pause
+super + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
-#Hide-show polybar
+# Hide-show polybar #TODO Implement hideIt.sh
+
 super + y
       {polybar-msg cmd toggle; bspc config top_padding 0 ,\
       polybar-msg cmd toggle; bspc config top_padding 28 }
@@ -51,16 +52,22 @@ super + g
 # TODO change these to toggles
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+#super + {t,shift + t,s,f}
+#	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + {t,f} 
+        bspc node -t {\~floating,\~fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
-# focus/swap
-#
+super + ctrl + s
+        bspc node -g {sticky} & notify-send 'Window change' 'Sticky keybind'
+
+
+
+# --- Focus/Swap
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
@@ -103,9 +110,11 @@ super + ctrl + {Left,Down,Up,Right}
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
+        # TODO Output the ratio
+        # TODO Rewrite this for mouse scrollwheel
 
 # cancel the preselection for the focused node
-# Escape
+super + q
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
@@ -134,6 +143,7 @@ super + alt + control + {Left,Down,Up,Right}
 
 super + shift  + s
          ~/.config/sxhkd/scripts/screenshot.sh
+         notify-send "Screenshot copied to clipboard"
 
 # Record area
 
@@ -143,7 +153,8 @@ super + shift + r
 # Fullscreen screenshot
 
 Print
-        shotgun -g $(xrandr |awk '$0 ~ "*" {print $1}') - | xclip -t 'image/png' -selection clipboard
+        shotgun -g $(xrandr |awk '$0 ~ "*" {print $1}') - | xclip -t 'image/png' -selection clipboard           
+        notify-send "Screenshot copied to clipboard"
 
 # --- Others
 
