@@ -54,6 +54,6 @@ bspc rule -a firefox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
 
 bspc rule -a 'YouTube Music' sticky=on state=floating rectangle=990x660+10+38
 
+  # --- Mic filter for noise, prolly bind this to app start rather than autostart
+
 easyeffects -l discord --gapplication-service & disown   
-
-

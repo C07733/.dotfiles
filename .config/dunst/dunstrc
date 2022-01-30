@@ -194,7 +194,7 @@
     max_icon_size = 48
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /home/usr01/.icons/material-design-icons-modified/src 
 
     ### History ###
 
@@ -385,10 +385,6 @@
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
 
 #[script-test]
 #    summary = "*script*"
