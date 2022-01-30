@@ -24,6 +24,6 @@ xsetroot -cursor_name left_ptr
 xset r rate 250 50
 
 # This is pobrably not secure at all, but it'll work for most casual desktop usage
-betterlockscreen --lock
+# betterlockscreen --lock
 
 exec bspwm

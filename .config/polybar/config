@@ -55,16 +55,16 @@ modules-left = bspwm
 
 modules-center = time
 
-modules-right = cpu empty-space mem updates powermenu
+modules-right = cpu S mem S updates S powermenu
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=14;3
 font-1 = MaterialIcons:size=14;5
 
 line-size = 3
 
-[module/empty-space]
+[module/S]
 type = custom/text
-content = "  "
+content = " "
 
 [module/bspwm]
 type = internal/bspwm
@@ -81,7 +81,7 @@ ws-icon-1 = terminal;
 ws-icon-2 = files; 
 ws-icon-3 = music;
 ws-icon-4 = comms; 
-ws-icon-default =  
+ws-icon-default = 
 
 label-separator = " "
 label-separator-background = ${colors.color0}
@@ -90,22 +90,18 @@ label-focused =  %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.color0}
 label-focused-padding = 0
-label-focused-font = 1
 
 label-occupied = %icon% 
 label-occupied-foreground = ${colors.color7} 
 label-occupied-background = ${colors.color0}
-label-occupied-padding = 0
 
-label-empty = %icon%
+label-empty = 
 label-empty-foreground = ${colors.color7}
 label-empty-background = ${colors.color0}
-label-empty-padding = 0
 
 label-urgent = %icon%
 label-urgent-foreground = ${colors.color1}
 label-urgent-background = ${colors.color0}
-label-urgent-padding = 0
 
 format = <label-state> <label-mode>
 
@@ -176,7 +172,7 @@ type = custom/script
 exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
 format = <label>
 format-prefix = " "
-label = "%output% MB "  
+label = %output% MB  
 format-prefix-foreground = ${colors.color11}
 
 [module/updates]
@@ -184,7 +180,7 @@ type = custom/script
 exec = checkupdates 2>/dev/null | wc -l;
 format = <label>
 interval = 4600 
-label ="  %output% "  
+label =  %output%  
 label-foreground = ${colors.color10}
 
 [module/powermenu]
@@ -193,23 +189,6 @@ content ="  "
 content-background = ${colors.color0}
 click-left = doas zzz &
 content-foreground = ${colors.color1}
-
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-format-connected =  <label-connected>
-label-connected = "󰤪  " 
-label-connected-foreground = #A3BE8C 
-
-[module/volume]
-type = custom/script
-exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
-format = <label>
-internal = 5.0
-label = %output% 
-label-foreground = #BF616A
-label-padding = 1
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -224,7 +203,7 @@ format-padding = 1
 type = internal/cpu
 interval = 1
 
-format =  " <label>" 
+format =   <label>
 
 format-suffix = 
 format-suffix-foreground = #2a1f36
@@ -237,6 +216,5 @@ format-overline = ${colors.background}
 format-underline = ${colors.background}
 
 label = CPU %percentage%%
-
 format-background = #2a1f36
 format-foreground = ${colors.color13}

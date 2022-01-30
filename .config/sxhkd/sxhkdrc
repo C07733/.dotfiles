@@ -16,13 +16,10 @@ super + r
 # Hide-show polybar #TODO Implement hideIt.sh
 
 super + y
-      {polybar-msg cmd toggle; bspc config top_padding 0 ,\
-      polybar-msg cmd toggle; bspc config top_padding 28 }
+    ~/.config/sxhkd/scripts/hidePolybar.sh
 
 
-#
-# bspwm hotkeys
-#
+# --- BSPWM Hotkeys
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -64,8 +61,6 @@ super + ctrl + {m,x,y,z}
 
 super + ctrl + s
         bspc node -g {sticky} & notify-send 'Window change' 'Sticky keybind'
-
-
 
 # --- Focus/Swap
 
@@ -153,8 +148,7 @@ super + shift + r
 # Fullscreen screenshot
 
 Print
-        shotgun -g $(xrandr |awk '$0 ~ "*" {print $1}') - | xclip -t 'image/png' -selection clipboard           
-        notify-send "Screenshot copied to clipboard"
+        ~/.config/sxhkd/scripts/fullscreenshot.sh
 
 # --- Others
 
