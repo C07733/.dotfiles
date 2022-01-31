@@ -51,7 +51,7 @@ override-redirect = true
 
 wm-restack = bspwm
 
-modules-left = bspwm
+modules-left = bspwm menu-apps
 
 modules-center = time
 
@@ -64,7 +64,7 @@ line-size = 3
 
 [module/S]
 type = custom/text
-content = " "
+content = "  "
 
 [module/bspwm]
 type = internal/bspwm

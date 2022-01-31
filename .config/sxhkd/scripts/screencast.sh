@@ -2,8 +2,7 @@
 if pidof ffmpeg
   then
     killall ffmpeg
-
-    notify-send 'Stopped Recording!' --icon=dialog-information
+    dunstify "Recording Ended" "Saved to ~/Videos" -i ~/.icons/material-design-icons-modified/src/action/not_started/materialicons/24px.svg
   else 
     slop=$(slop -b -3 -c 1,0.4,0.298,0.3 -l -f "%x %y %w %h")
 
@@ -17,8 +16,7 @@ if pidof ffmpeg
 
     if [ $width -gt 0 ];
      then
-      notify-send 'Started Recording!' --icon=dialog-information
-      
+      dunstify "Recording Started" "Saving to ~/Videos" -i ~/.icons/material-design-icons-modified/src/action/not_started/materialicons/24px.svg
       # records without audio input
       # for audio add "-f alsa -i pulse" to the line below (at the end before \, without "")
       ffmpeg -f x11grab -s "$W"x"$H" -framerate 60  -thread_queue_size 512  -i $DISPLAY.0+$X,$Y \

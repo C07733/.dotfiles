@@ -123,6 +123,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/usr01/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/home/usr01/.local/share/nvim/site/pack/packer/start/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
+  },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/usr01/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://github.com/mhinz/vim-startify"
   }
 }
 

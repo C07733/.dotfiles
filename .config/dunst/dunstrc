@@ -178,7 +178,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
@@ -203,7 +203,7 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 5
 
     ### Misc/Advanced ###
 
@@ -385,10 +385,6 @@
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
 
 #[ignore]
 #    # This notification will not be displayed
