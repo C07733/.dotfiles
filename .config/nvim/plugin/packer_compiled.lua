@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/usr01/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["vim-css-color"] = {
+    loaded = true,
+    path = "/home/usr01/.local/share/nvim/site/pack/packer/start/vim-css-color",
+    url = "https://github.com/ap/vim-css-color"
+  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/usr01/.local/share/nvim/site/pack/packer/start/vim-polyglot",

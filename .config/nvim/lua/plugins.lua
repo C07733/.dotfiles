@@ -9,6 +9,7 @@ vim.cmd [[ packadd packer.nvim ]]
 return require('packer').startup(function()
   use 'sheerun/vim-polyglot'
   use 'mhinz/vim-startify'
+  use 'ap/vim-css-color'
   use 'wbthomason/packer.nvim'
   use 'norcalli/nvim-base16.lua'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }

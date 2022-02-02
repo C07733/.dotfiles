@@ -2,7 +2,7 @@ local base16 = require('base16')
 
 -- themes
 local gr8 = base16.theme_from_array {
-	"1A1A1A"; "262626"; "333333"; "333333";
+	"1A1A1A"; "262626"; "262626"; "333333";
 	"E6E6E6"; "E6E6E6"; "E6E6E6"; "E6E6E6";
   "ff664c"; "feff64"; "feff64"; "40c561";
 	"18d4b4"; "7cb1ef"; "f980f0"; "d9d9d9";

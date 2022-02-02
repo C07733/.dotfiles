@@ -42,6 +42,9 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 bspc config top_padding 28
 
 
+bspc config pointer_motion_interval 1
+
+
 kitty &
 
 # --- Here come them rules!
