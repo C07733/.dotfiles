@@ -37,3 +37,4 @@ constant = ""
 
 [[names.classified]]
 "terminal" = ["kitty", "xterm", "URxvt"]
+

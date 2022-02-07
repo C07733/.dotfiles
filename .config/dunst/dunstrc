@@ -301,6 +301,7 @@
     background = "#1a1a1a"
     foreground = "#e6e6e6"
     frame_color = "#333333"
+    highlight = "#6aa4e3"
     timeout = 3
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon

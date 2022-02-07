@@ -1,0 +1,78 @@
+$foreground: #ffffff;
+$grey: #aaaaaa;
+$foreground-alt: #465059;
+$background: #0e1419;
+$black: #000000;
+$red: #ff6565;
+$green: #b8cc52;
+$yellow: #e6c446;
+$blue: #68d4ff;
+$magenta: #ffa3aa;
+$cyan: #36a3d9;
+$white: #ffffff;
+
+@import '/home/usr01/.cache/wal/colors.scss';
+
+* {
+  all: unset;
+}
+
+window {
+  background: $background;
+  border-bottom: 3px solid $color8;
+}
+
+.bar {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14pt;
+
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+.icon-module {
+  margin-left: 5px;
+
+  margin-top: 5px;
+
+  margin-bottom: 5px;
+
+  padding-right: 5px;
+  background-color: $color0;
+
+  & > &__icon {
+    margin-right: 5px;
+    background-color: $color2;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-family: "Material Icons";
+  }
+}
+
+
+.workspaces {
+  font-family: "JetBrainsMono Nerd Font";
+  margin-right: 20px;
+
+  button {
+    margin: 0px 3px;
+  }
+  .occupied {
+    color: $color7;
+  }
+
+  .focused {
+    color: $foreground;
+  }
+
+  .urgent {
+    color: $color9; 
+  }
+
+  .empty {
+    color: $color8;
+  }
+
+}
