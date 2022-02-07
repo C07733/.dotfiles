@@ -25,6 +25,7 @@ window {
 .bar {
   font-family: "JetBrainsMono Nerd Font";
   font-size: 14pt;
+  color: $foreground;
 
   margin-right: 10px;
   margin-left: 10px;
@@ -51,6 +52,21 @@ window {
   }
 }
 
+.cpu {
+  background-color: $color0;
+
+  .icon-module__icon {
+    background-color: $color10;
+    color: $background;
+    font-family: "JetBrainsMono Nerd Font";
+  }
+}
+
+.ram {
+  background-color: $background;
+
+
+}
 
 .workspaces {
   font-family: "JetBrainsMono Nerd Font";

@@ -21,18 +21,8 @@
          :spacing 12
          :hexpand true
          :space-evenly false
-      (notifications)
-      (github)
       (updates)
-      (trash)
-      (noisetorch)
-      (microphone)
-      (speaker)
-      (ping)
-      (network)
-      (disk)
       (ram)
-      (nvidia)
       (cpu)
       (date)
       (time))))
@@ -78,7 +68,7 @@
     (literal :content {player_listen.content})))
 
 (defwidget ram []
-  (icon-module :class "ram" :icon "" :visible {EWW_RAM.used_mem_perc != ""}
+  (icon-module :class "ram" :icon "" :visible {EWW_RAM.used_mem_perc != ""}
     (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
 
 (defwidget notifications []
@@ -86,11 +76,11 @@
     (literal :content {notifications_listen.content}))) 
 
 (defwidget date []
-  (icon-module :class "date" :icon "" 
+  (icon-module :class "date" :icon "" 
     (label :text date_poll)))
 
 (defwidget time []
-  (icon-module :class "time" :icon "" 
+  (icon-module :class "time" :icon "" 
     (label :text time_poll))) 
 
 (defwidget nvidia []
@@ -98,7 +88,7 @@
     (label :text nvidia_listen))) 
 
 (defwidget cpu []
-  (icon-module :class "cpu" :icon "" 
+  (icon-module :class "cpu" :icon "CPU" 
     (label :text "${round(EWW_CPU.avg, 0)}%"))) 
 
 (defwidget disk []
@@ -114,7 +104,7 @@
     (label :text noisetorch_poll))) 
 
 (defwidget updates []
-  (icon-module :class "updates" :icon "" :visible {updates_poll != ""}
+  (icon-module :class "updates" :icon "" :visible {updates_poll != ""}
     (label :text updates_poll))) 
 
 (defwidget github []
