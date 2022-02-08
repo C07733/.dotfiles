@@ -1,16 +1,3 @@
-$foreground: #ffffff;
-$grey: #aaaaaa;
-$foreground-alt: #465059;
-$background: #0e1419;
-$black: #000000;
-$red: #ff6565;
-$green: #b8cc52;
-$yellow: #e6c446;
-$blue: #68d4ff;
-$magenta: #ffa3aa;
-$cyan: #36a3d9;
-$white: #ffffff;
-
 @import '/home/usr01/.cache/wal/colors.scss';
 
 * {
@@ -53,19 +40,50 @@ window {
 }
 
 .cpu {
-  background-color: $color0;
+  background-color: $color10;
+  color: $background;
 
   .icon-module__icon {
-    background-color: $color10;
+    background-color: $color2;
     color: $background;
     font-family: "JetBrainsMono Nerd Font";
-  }
+    }
 }
 
 .ram {
   background-color: $background;
+  color: $color4;
 
+  .icon-module__icon {
+    background-color: $background;
+    color: $color12;
+  }
+}
 
+.updates {
+  background-color: $background;
+  color: $color10;
+
+  .icon-module__icon {
+    background-color: $background;
+    color: $color2;
+  }
+}
+
+.units {
+  font-size: 10pt;
+  margin-top: 4pt;
+  margin-left: 3px;
+}
+
+.time {
+  background-color: $color0;
+  color: $foreground;
+
+  .icon-module__icon {
+    background-color: $color8;
+    color: $foreground;
+  }
 }
 
 .workspaces {

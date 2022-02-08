@@ -1,32 +1,46 @@
-; Windows foldstart
+(defwidget bar []
+  (centerbox :orientation "h"
+    (start)
+    (center)
+    (end)))
+
+(defwidget start []
+  (box :class "start"
+       :orientation "h"
+       :space-evenly false
+       :halign "start"
+       :spacing 0
+    (workspaces)
+    (applaunch)))
+
+(defwidget center []
+  (box :class "center"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+       :spacing 0
+       (time)))
+
+(defwidget end []
+  (box :class "end" 
+       :orientation "h" 
+       :space-evenly false 
+       :halign "end"
+       :spacing 9
+    (updates)
+    (ram)
+    (cpu)))
+
 (defwindow bar
   :monitor 0
-  :hexpand false
-  :vexpand false
-  :geometry (geometry :anchor "top left" :x 0 :y 0 :width "100%")
-  :reserve (struts :distance "24px" :side "top")
-  (bar :screen 0))
-; foldend
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "2%")
+  (bar))
 
-; Bar foldstart
-(defwidget bar [screen]
-  (box :orientation "h"
-       :space-evenly false
-       :class "bar"
-    (box :halign "start"
-         :space-evenly false
-      (workspaces)
-      (player))
-    (box :halign "end"
-         :spacing 12
-         :hexpand true
-         :space-evenly false
-      (updates)
-      (ram)
-      (cpu)
-      (date)
-      (time))))
-; foldend
 
 ; Variables foldstart
 (defpoll time_poll :interval "1s" "date +%H:%M")
@@ -63,13 +77,18 @@
 (defwidget workspaces []
   (literal :content workspaces_listen))
 
+(defwidget applaunch []
+  (icon-module :class "player" :icon "[]=" :visible "yes"
+    (literal :content {player_listen.content})))
+
 (defwidget player []
   (icon-module :class "player" :icon "" :visible {player_listen.show == "yes"}
     (literal :content {player_listen.content})))
 
 (defwidget ram []
-  (icon-module :class "ram" :icon "" :visible {EWW_RAM.used_mem_perc != ""}
-    (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
+  (icon-module :class "ram" :icon "" :visible {EWW_RAM.used_mem != ""}
+    (label :text "${round(EWW_RAM.used_mem/1000000, 1)}")
+    (label :class "units" :text "GB")))
 
 (defwidget notifications []
   (icon-module :class "notifications" :icon "" :visible {notifications_listen.show == "yes"}
@@ -117,7 +136,7 @@
 
 (defwidget network []
   (icon-module :class "network" :icon ""
-    (label :text "${round(EWW_NET.enp42s0.NET_UP / 1000000, 2)}/${round(EWW_NET.enp42s0.NET_DOWN / 1000000, 2)}"))) 
+    (label :text "${round(EWW_NET.enp3s0.NET_UP / 1000000, 2)}/${round(EWW_NET.enp3s0.NET_DOWN / 1000000, 2)}"))) 
 
 (defwidget speaker []
   (icon-module :class "speaker" 
