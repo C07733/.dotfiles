@@ -70,10 +70,25 @@ window {
   }
 }
 
+.applaunch {
+
+  background-color: $background;
+
+  .icon-module__icon {
+    background-color: $background;
+    
+    color: $color11;
+
+    font-family: "JetBrainsMono Nerd Font";
+  }
+  
+}
+
 .units {
   font-size: 10pt;
   margin-top: 4pt;
   margin-left: 3px;
+  font-weight: bold;
 }
 
 .time {
@@ -86,9 +101,20 @@ window {
   }
 }
 
+.powermenu {
+  padding-right: 0px;
+  color: $background;
+  background-color: $background;
+
+  .icon-module__icon {
+    background-color: $color9;
+    font-size: 16pt;
+    //font-weight: bold;
+  }
+}
 .workspaces {
   font-family: "JetBrainsMono Nerd Font";
-  margin-right: 20px;
+  margin-right: 10px;
 
   button {
     margin: 0px 3px;

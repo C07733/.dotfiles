@@ -21,4 +21,6 @@ vim.cmd [[
     au VimEnter * ++nested if !&diff | tab all | tabfirst | endif
   augroup end
   au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal
+	set number
+	set norelativenumber
 ]]

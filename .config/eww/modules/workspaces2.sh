@@ -1,12 +1,13 @@
 #!/bin/sh
+# EUGH
 
 # Checks if a list ($1) contains an element ($2)
-'contains() {
-for e in $1; do
+contains() {
+    for e in $1; do
         [ "$e" -eq "$2" ] && echo 1 && return 
     done
     echo 0
-}'
+}
 
 print_workspaces() {
     buf=""
@@ -16,21 +17,21 @@ print_workspaces() {
     urgent_desktops=$(bspc query -D -d .urgent --names)
     
     for d in $desktops; do
-        if [ "$(echo "$focused_desktop" | grep -c "$d")" -eq 1 ]; then
+        if [ "$(contains "$focused_desktop" "$d")" -eq 1 ]; then
             ws=$d
-            icon="F"
+            icon=""
             class="focused"
-        elif [ "$(echo "$occupied_desktops" | grep -c "$d")" -eq 1 ]; then
+        elif [ "$(contains "$occupied_desktops" "$d")" -eq 1 ]; then
             ws=$d
-            icon="O"
+            icon=""
             class="occupied"
-        elif [ "$(echo "$urgent_desktops" | grep -c "$d")" -eq 1 ]; then
+        elif [ "$(contains "$urgent_desktops" "$d")" -eq 1 ]; then
             ws=$d
-            icon="U"
+            icon=""
             class="urgent"
         else 
             ws=$d
-            icon="E"
+            icon=""
             class="empty"
         fi  
 
@@ -45,4 +46,5 @@ print_workspaces
 bspc subscribe desktop node_transfer | while read -r _ ; do
     print_workspaces
 done 
+
 

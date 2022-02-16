@@ -29,7 +29,8 @@
        :spacing 9
     (updates)
     (ram)
-    (cpu)))
+    (cpu)
+    (powermenu)))
 
 (defwindow bar
   :monitor 0
@@ -51,7 +52,7 @@
 (defpoll github_poll :initial "" :interval "1m" "./modules/github.sh")
 (defpoll ping_poll :interval "10s" "./modules/ping.sh")
 
-(deflisten workspaces_listen "./modules/workspaces.sh")
+(deflisten workspaces_listen "./modules/workspace_bspwm/updateWorkspace.sh")
 (deflisten player_listen :initial '{"show": "no", "content": ""}' "./modules/player.sh")
 (deflisten nvidia_listen "./modules/nvidia.sh")
 (deflisten notifications_listen :initial '{"show": "no", "content": ""}' "./modules/notifications.sh")
@@ -78,8 +79,7 @@
   (literal :content workspaces_listen))
 
 (defwidget applaunch []
-  (icon-module :class "player" :icon "[]=" :visible "yes"
-    (literal :content {player_listen.content})))
+  (icon-module :class "applaunch" :icon "[]=" :visible "yes"))
 
 (defwidget player []
   (icon-module :class "player" :icon "" :visible {player_listen.show == "yes"}
@@ -108,7 +108,8 @@
 
 (defwidget cpu []
   (icon-module :class "cpu" :icon "CPU" 
-    (label :text "${round(EWW_CPU.avg, 0)}%"))) 
+    (label :text "${round(EWW_CPU.avg, 0)}%")))
+    ;(label :class "units" :text "%")))
 
 (defwidget disk []
   (icon-module :class "disk" :icon "" 
@@ -133,6 +134,9 @@
 (defwidget ping []
   (icon-module :class "ping" :icon ""
     (label :text ping_poll))) 
+
+(defwidget powermenu []
+  (icon-module :class "powermenu" :icon ""))
 
 (defwidget network []
   (icon-module :class "network" :icon ""
