@@ -64,8 +64,8 @@ do
 	i=$((i + 1))
 done
 
-#echo ${#iconizedDesktop[@]} -
-#echo ${iconizedDesktop[@]} - 
+#echo ${#iconizedDesktop[@]}
+#echo ${iconizedDesktop[@]}
 
 #i=1
 #end=${#inconizedDesktop[@]}
@@ -79,6 +79,8 @@ desktops=$(bspc query -D --names)
 focused_desktop=$(bspc query -D -d focused --names)
 occupied_desktops=$(bspc query -D -d .occupied --names)
 urgent_desktops=$(bspc query -D -d .urgent --names)
+
+iconizedDesktop+=("E") # Appended icon for the empty workspace
 
 #echo $desktops
 
@@ -97,7 +99,7 @@ for d in $desktops; do
 		class="urgent"
 	else 
 		ws=$d
-		icon="B"
+		icon="${iconizedDesktop[$((d-1))]}"
 		class="empty"
 	fi  
 	buf="$buf (eventbox :cursor \"hand\" (button :class \"$class\" :onclick \"bspc desktop -f $ws\" \"$icon\"))"
