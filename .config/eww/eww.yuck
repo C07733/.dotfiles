@@ -39,9 +39,8 @@
                       :y "0%"
                       :width "100%"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "2%")
+  :reserve (struts :side "top" :distance "36px")
   (bar))
-
 
 ; Variables foldstart
 (defpoll time_poll :interval "1s" "date +%H:%M")

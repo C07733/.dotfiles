@@ -6,35 +6,27 @@
 
 window {
   background: $background;
-  border-bottom: 3px solid $color8;
 }
 
 .bar {
   font-family: "JetBrainsMono Nerd Font";
   font-size: 14pt;
   color: $foreground;
-
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 0px;
-  margin-bottom: 3px;
+  border-bottom: 0.15em solid $color8;
 }
 
 .icon-module {
-  margin-left: 5px;
+  margin: 0.3em 0em 0.3em 0.3em; /*top-right-bottom-left*/
 
-  margin-top: 5px;
+  padding-right: 0.3em;
 
-  margin-bottom: 5px;
-
-  padding-right: 5px;
   background-color: $color0;
 
   & > &__icon {
-    margin-right: 5px;
+    margin-right: 0.3em;
     background-color: $color2;
-    padding-left: 3px;
-    padding-right: 3px;
+
+    padding: 0em 0.3em 0em 0.3em;
     font-family: "Material Icons";
   }
 }
@@ -45,6 +37,7 @@ window {
 
   .icon-module__icon {
     background-color: $color2;
+    padding-top: 0em;
     color: $background;
     font-family: "JetBrainsMono Nerd Font";
     }
@@ -70,8 +63,7 @@ window {
   }
 }
 
-.applaunch {
-
+.applaunch { 
   background-color: $background;
 
   .icon-module__icon {
@@ -86,8 +78,8 @@ window {
 
 .units {
   font-size: 10pt;
-  margin-top: 4pt;
-  margin-left: 3px;
+  margin-top: 0.3em;
+  margin-left: 0.2em;
   font-weight: bold;
 }
 
@@ -114,10 +106,14 @@ window {
 }
 .workspaces {
   font-family: "JetBrainsMono Nerd Font";
-  margin-right: 10px;
+  margin: 0.25em;
+  font-size: 16pt;
+   
+  margin-right: 0px;
+  background-color: $color0;
 
   button {
-    margin: 0px 3px;
+    padding: 0em 0.3em 0em 0.3em;
   }
   .occupied {
     color: $color7;
@@ -125,6 +121,7 @@ window {
 
   .focused {
     color: $foreground;
+    background-color: $color8;
   }
 
   .urgent {

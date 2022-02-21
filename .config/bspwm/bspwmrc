@@ -3,14 +3,12 @@
 xrdb ~/.Xresources
 xsetroot -cursor_name left_ptr
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-
-bspc monitor -d 1 2 3 4 5 
+pgrep -x sxhkd > /dev/null || sxhkd & 
 
 bspc config border_width         3
 bspc config window_gap          10
 
-bspc config split_ratio          0.50
+bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus 	 true
@@ -37,8 +35,9 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 
 # --- TODO Set workstations up
 
-~/.config/polybar/launch.sh
-bspc config top_padding 28
+eww open bar
+# ~/.config/polybar/launch.sh
+# bspc config top_padding 28
 
 bspc config pointer_motion_interval 20
 
@@ -54,6 +53,6 @@ bspc rule -a firefox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
 
 bspc rule -a 'YouTube Music' sticky=on state=floating rectangle=990x660+10+38
 
-  # --- Mic filter for noise, prolly bind this to app start rather than autostart
-
-#easyeffects -l discord --gapplication-service & disown   
+bspc rule -a eww-bar layer=below
+# --- Mic filter for noise, prolly bind this to app start rather than autostart
+# easyeffects -l discord --gapplication-service & disown   
