@@ -5,9 +5,8 @@ super + Return
 	kitty
 
 # Program launcher
-super + @space
-	~/.config/rofi/bin/launcher_slate
-
+super + space
+	findex	
 
 # Reload sxhkdrc and config files
 super + r
@@ -17,7 +16,6 @@ super + r
 
 super + y
     ~/.config/sxhkd/scripts/hidePolybar.sh
-
 
 # --- BSPWM Hotkeys
 
@@ -161,5 +159,3 @@ alt + v
         -theme-str '* \{ font: 10px; \}' \
         -theme-str 'listview \{ spacing: 0; \}' \
         -theme-str 'window \{ width: 20em; \}'
-
-

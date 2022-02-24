@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DIR="$(dirname "$(realpath "$0")")"
+
 contains() {
     for e in $1; do
         [ "$e" -eq "$2" ] && echo 1 && return 
@@ -49,12 +51,12 @@ do
 			break
 		fi
 		y=$((y + 1))	
-		done < ~/Documents/iconList.txt
+		done < $DIR/iconList.txt
 
 	if [[ ${listOfDesktops[$i]} != ${listOfDesktops[$((i + 1))]} ]]; then
 		if [ $biggestY -eq 0 ]; then
 			#echo Z\| No icon found.
-			chosenIcon="Z"
+			chosenIcon=""
 		fi
 		# echo $biggestY $chosenIcon 
 		iconizedDesktop+=($chosenIcon)
@@ -80,7 +82,7 @@ focused_desktop=$(bspc query -D -d focused --names)
 occupied_desktops=$(bspc query -D -d .occupied --names)
 urgent_desktops=$(bspc query -D -d .urgent --names)
 
-iconizedDesktop+=("E") # Appended icon for the empty workspace
+iconizedDesktop+=("") # Appended icon for the empty workspace
 
 #echo $desktops
 

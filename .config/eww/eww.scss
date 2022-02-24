@@ -63,7 +63,8 @@ window {
   }
 }
 
-.applaunch { 
+.applaunch {
+  
   background-color: $background;
 
   .icon-module__icon {
@@ -72,8 +73,7 @@ window {
     color: $color11;
 
     font-family: "JetBrainsMono Nerd Font";
-  }
-  
+  } 
 }
 
 .units {
@@ -113,7 +113,7 @@ window {
   background-color: $color0;
 
   button {
-    padding: 0em 0.3em 0em 0.3em;
+      padding: 0.1em 0.2em 0.1em 0.2em;
   }
   .occupied {
     color: $color7;
@@ -122,6 +122,8 @@ window {
   .focused {
     color: $foreground;
     background-color: $color8;
+    padding: 0em 0.3em 0em 0.3em;
+    border-bottom: 0.1em solid $foreground;
   }
 
   .urgent {
@@ -131,5 +133,5 @@ window {
   .empty {
     color: $color8;
   }
-
 }
+
