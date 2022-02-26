@@ -19,7 +19,6 @@ window {
   margin: 0.3em 0em 0.3em 0.3em; /*top-right-bottom-left*/
 
   padding-right: 0.3em;
-
   background-color: $color0;
 
   & > &__icon {
@@ -43,6 +42,36 @@ window {
     }
 }
 
+.volume {
+  color: $background;
+  background-color: $color9;
+  border-left: 0.25em solid $color1;
+  
+  .icon-module__icon {
+    margin-right: 0em;
+    background-color: $color9; 
+    font-size:16pt;
+    padding: 0em 0em 0em 0.2em;
+
+    font-family: "Material Icons";
+  }
+}
+
+.microphone {
+  color: $background;
+  background-color: $color10;
+  border-left: 0.25em solid $color2;
+  
+  .icon-module__icon {
+    margin-right: 0em;
+    background-color: $color10; 
+    font-size:16pt;
+    padding: 0em 0em 0em 0.2em;
+
+    font-family: "Material Icons";
+  }
+}
+
 .ram {
   background-color: $background;
   color: $color4;
@@ -56,7 +85,7 @@ window {
 .updates {
   background-color: $background;
   color: $color10;
-
+ 
   .icon-module__icon {
     background-color: $background;
     color: $color2;
@@ -104,10 +133,11 @@ window {
     //font-weight: bold;
   }
 }
+
 .workspaces {
   font-family: "JetBrainsMono Nerd Font";
   margin: 0.25em;
-  font-size: 16pt;
+  font-size: 15pt;
    
   margin-right: 0px;
   background-color: $color0;

@@ -9,8 +9,10 @@
        :orientation "h"
        :space-evenly false
        :halign "start"
-       :spacing 0
+       :spacing 9
     (workspaces)
+    (microphone)
+    (volume)
     (applaunch)))
 
 (defwidget center []
@@ -18,7 +20,7 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
-       :spacing 0
+       :spacing 9
        (time)))
 
 (defwidget end []
@@ -27,6 +29,8 @@
        :space-evenly false 
        :halign "end"
        :spacing 9
+    (microphone)
+    (volume)
     (updates)
     (ram)
     (cpu)
@@ -72,6 +76,16 @@
 ; Polybar-Style modules foldstart
 (defwidget workspaces []
   (literal :content workspaces_listen))
+
+(defwidget volume []
+  (icon-module :class "volume" :icon " " :visible "yes"
+    (label :text "99")
+    (label :class "units" :text "+db")))
+
+(defwidget microphone []
+  (icon-module :class "microphone" :icon " " :visible "yes"
+    (label :text "99")
+    (label :class "units" :text "+db")))
 
 (defwidget applaunch []
   (icon-module :class "applaunch" :icon "[]=" :visible "yes"))
@@ -128,7 +142,7 @@
      (button :onclick `eww update speaker_poll="$(./modules/speaker.sh toogle)"`
         (label :text {speaker_poll.content})))))
 
-(defwidget microphone []
+(defwidget microphone_old []
   (icon-module :class "microphone" 
                :icon {microphone_poll.icon}
     (eventbox :onscroll `eww update microphone_poll="$(./modules/microphone.sh {})"`

@@ -35,13 +35,11 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 
 # --- TODO Set workstations up
 
-eww open bar
+# eww open bar
 # ~/.config/polybar/launch.sh
 # bspc config top_padding 28
 
 bspc config pointer_motion_interval 20
-
-
 
 # --- Here come them rules!
 
@@ -56,4 +54,5 @@ bspc rule -a 'YouTube Music' sticky=on state=floating rectangle=990x660+10+38
 bspc rule -a eww-bar layer=below
 
 # --- Mic filter for noise, prolly bind this to app start rather than autostart
-easyeffects -l discord --gapplication-service & disown   
+# TODO Fix, bugs audio, no output
+# easyeffects -l discord --gapplication-service & disown   
