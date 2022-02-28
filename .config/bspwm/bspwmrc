@@ -35,7 +35,7 @@ pgrep -x flashfocus > /dev/null || flashfocus &
 
 # --- TODO Set workstations up
 
-# eww open bar
+eww open bar
 # ~/.config/polybar/launch.sh
 # bspc config top_padding 28
 

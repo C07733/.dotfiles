@@ -29,8 +29,6 @@
        :space-evenly false 
        :halign "end"
        :spacing 9
-    (microphone)
-    (volume)
     (updates)
     (ram)
     (cpu)
@@ -50,16 +48,13 @@
 (defpoll time_poll :interval "1s" "date +%H:%M")
 (defpoll date_poll :interval "1m" "date +%d/%m/%Y")
 (defpoll trash_poll :interval "10s" "./modules/trash.sh")
-(defpoll updates_poll :initial "" :interval "1m" "./modules/updates.sh &") 
+(defpoll updates_poll :initial "" :interval "1m" "./modules/updates.sh &")
+(defpoll volume_percent :interval "1s" "pamixer --get-volume")
+(defpoll mic_percent :interval "1s" "pamixer --default-source --get-volume")
 
 (deflisten workspaces_listen "./modules/workspace_bspwm/updateWorkspace.sh")
 (deflisten player_listen :initial '{"show": "no", "content": ""}' "./modules/player.sh")
 (deflisten notifications_listen :initial '{"show": "no", "content": ""}' "./modules/notifications.sh")
-
-; Make this cleaner at some point
-(defpoll microphone_poll :interval "999h" "./modules/microphone.sh")
-(defpoll speaker_poll :interval "999h" "./modules/speaker.sh")
-; foldend
 
 ; Modules foldstart
 ; Generic icon module foldstart
@@ -76,16 +71,6 @@
 ; Polybar-Style modules foldstart
 (defwidget workspaces []
   (literal :content workspaces_listen))
-
-(defwidget volume []
-  (icon-module :class "volume" :icon " " :visible "yes"
-    (label :text "99")
-    (label :class "units" :text "+db")))
-
-(defwidget microphone []
-  (icon-module :class "microphone" :icon " " :visible "yes"
-    (label :text "99")
-    (label :class "units" :text "+db")))
 
 (defwidget applaunch []
   (icon-module :class "applaunch" :icon "[]=" :visible "yes"))
@@ -132,22 +117,20 @@
   (icon-module :class "powermenu" :icon ""))
 
 (defwidget network []
-  (iconmodule :class "network" :icon ""
-    (label :text "${round(EWW_NET.enp3s0.NET_UP / 1000000, 2)}/${round(EWW_NET.enp3s0.NET_DOWN / 1000000, 2)}"))) 
+  (icon-module :class "network" :icon ""
+    (label :class "units" :text "Up:")
+    (label :text "${round(EWW_NET.enp3s0.NET_UP / 10000, 1)}")
+    (label :class "units" :text "Down:")
+    (label :text "${round(EWW_NET.enp3s0.NET_DOWN / 10000, 1)}"))) 
 
-(defwidget speaker []
-  (icon-module :class "speaker" 
-               :icon {speaker_poll.icon}
-    (eventbox :onscroll `eww update speaker_poll="$(./modules/speaker.sh {})"`
-     (button :onclick `eww update speaker_poll="$(./modules/speaker.sh toogle)"`
-        (label :text {speaker_poll.content})))))
+(defwidget volume []
+  (icon-module :class "volume" :icon " " :visible "yes"
+    (eventbox :cursor "hand" :onscroll "./modules/volume.sh {}" (label :text volume_percent))
+    (label :class "units" :text "mas")))
+ 
 
-(defwidget microphone_old []
-  (icon-module :class "microphone" 
-               :icon {microphone_poll.icon}
-    (eventbox :onscroll `eww update microphone_poll="$(./modules/microphone.sh {})"`
-      (button :onclick `eww update microphone_poll="$(./modules/microphone.sh toogle)"`
-        (label :text {microphone_poll.content})))))
-; foldend
+(defwidget microphone []
+  (icon-module :class "microphone" :icon " " :visible "yes"
+    (label :text mic_percent)
+    (label :class "units" :text "nrs")))
 
-; vim:foldmarker=foldstart,foldend

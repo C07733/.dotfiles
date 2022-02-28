@@ -42,6 +42,18 @@ window {
     }
 }
 
+.network {
+  background-color: $color11;
+  color: $color8;
+
+  .icon-module__icon {
+    background-color: $color0;
+    padding-top: 0em;
+    color: $color11;
+    font-family: "JetBrainsMono Nerd Font";
+    }
+}
+
 .volume {
   color: $background;
   background-color: $color9;
@@ -57,11 +69,11 @@ window {
   }
 }
 
-.microphone {
+.microphone { 
   color: $background;
   background-color: $color10;
   border-left: 0.25em solid $color2;
-  
+ 
   .icon-module__icon {
     margin-right: 0em;
     background-color: $color10; 
@@ -93,14 +105,12 @@ window {
 }
 
 .applaunch {
-  
   background-color: $background;
-
+  margin: 0em 0em 0em 0em;
+  
   .icon-module__icon {
-    background-color: $background;
-    
+    background-color: $background; 
     color: $color11;
-
     font-family: "JetBrainsMono Nerd Font";
   } 
 }
@@ -150,10 +160,8 @@ window {
   }
 
   .focused {
-    color: $foreground;
-    background-color: $color8;
-    padding: 0em 0.3em 0em 0.3em;
-    border-bottom: 0.1em solid $foreground;
+    color: $background;
+    background-color: $color15;
   }
 
   .urgent {
