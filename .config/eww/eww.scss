@@ -9,10 +9,10 @@ window {
 }
 
 .bar {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 14pt;
   color: $foreground;
-  border-bottom: 0.15em solid $color8;
+  border-bottom: 3px solid $color8;
 }
 
 .icon-module {
@@ -39,6 +39,18 @@ window {
     padding-top: 0em;
     color: $background;
     font-family: "JetBrainsMono Nerd Font";
+    }
+}
+
+.brightness {
+  background-color: $color11;
+  color: $background;
+
+  .icon-module__icon {
+    background-color: $color3;
+    padding-top: 0em;
+    color: $background;
+    font-family: "Material Icons";
     }
 }
 
@@ -171,5 +183,18 @@ window {
   .empty {
     color: $color8;
   }
+}
+
+.brightness scale trough highlight {
+  all: unset;
+  background-color: $background;
+}
+.brightness scale trough {
+  all: unset;
+  background-color: $color3;
+  min-height: 0.3em;
+  min-width: 4em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
 }
 

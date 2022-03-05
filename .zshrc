@@ -1,4 +1,4 @@
-  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -33,7 +33,7 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 eval "$(zoxide init zsh)"
 
 # Aliases 
-alias config='/usr/bin/git --git-dir=/home/usr01/.dotfiles/ --work-tree=/home/usr01'
+alias config='/usr/bin/git --git-dir=/home/usr01/.dotfiles --work-tree=/home/usr01'
 
 alias ls=exa
 
@@ -41,7 +41,7 @@ alias rm=trash
 
 alias c=clear
 
-alias mount='mount |column -t'
+alias mount='mount | column -t'
 
 alias h='history'
 alias j='jobs -l'
@@ -55,6 +55,10 @@ alias se='doas nvim'
 alias cd='z'
 
 alias cat='pygmentize -g'
+
+alias copy='\cat $1 | xclip -sel c'
+
+alias discord='discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy & disown'
 
 # These ain't working
 
