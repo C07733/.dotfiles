@@ -52,8 +52,7 @@
 (defpoll updates_poll :initial "" :interval "1m" "./modules/updates.sh &")
 (defpoll volume_percent :interval "1s" "pamixer --get-volume")
 (defpoll mic_percent :interval "1s" "pamixer --default-source --get-volume")
-(defpoll brightness_percent :interval "1s" "echo \"($(stdbuf -o0 xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ' ) - 0.2) / 0.01 / 0.8\" | bc")
-
+(defpoll brightness :interval "999h" "echo \"scale=1;$(stdbuf -o0 xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ') / 1\" | bc -l")
 (deflisten workspaces_listen "./modules/workspace_bspwm/updateWorkspace.sh")
 (deflisten player_listen :initial '{"show": "no", "content": ""}' "./modules/player.sh")
 (deflisten notifications_listen :initial '{"show": "no", "content": ""}' "./modules/notifications.sh")
@@ -107,8 +106,9 @@
   (icon-module :class "brightness" :icon "" 
    (scale :min 0
           :max 100
-          :value brightness_percent)
-   (label :class "units" :text ".5")))
+          :value 100
+	  :onchange "./modules/brightness.sh {} && eww update brightness=$(echo \"scale=1;$(stdbuf -o0 xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ') / 1\" | bc -l)")
+   (label :class "units" :text brightness)))
 
 
 (defwidget disk []
@@ -140,7 +140,5 @@
  
 
 (defwidget microphone []
-  (icon-module :class "microphone" :icon " " :visible "yes"
-    (label :text mic_percent)
-    (label :class "units" :text "nrs")))
+  (icon-module :class "microphone" :icon "" :visible "yes"))
 
