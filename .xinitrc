@@ -1,5 +1,4 @@
 #!/bin/sh
-# start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -7,6 +6,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
+
+# Keyboard
 
 setxkbmap br
 
@@ -26,8 +27,12 @@ xset r rate 250 50
 # This is pobrably not secure at all, but it'll work for most casual desktop usage
 # betterlockscreen --lock
 
+# Audio
+
 pipewire &
 pipewire-pulse &
 wireplumber &
+
+# WM
 
 exec bspwm

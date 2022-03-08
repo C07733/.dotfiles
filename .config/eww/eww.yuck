@@ -50,7 +50,7 @@
 (defpoll date_poll :interval "1m" "date +%d/%m/%Y")
 (defpoll trash_poll :interval "10s" "./modules/trash.sh")
 (defpoll updates_poll :initial "" :interval "1m" "./modules/updates.sh &")
-(defpoll volume_percent :interval "1s" "pamixer --get-volume")
+(defpoll volume_percent :interval "999h" "pamixer --get-volume")
 (defpoll mic_percent :interval "1s" "pamixer --default-source --get-volume")
 (defpoll brightness :interval "999h" "echo \"scale=1;$(stdbuf -o0 xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ') / 1\" | bc -l")
 (deflisten workspaces_listen "./modules/workspace_bspwm/updateWorkspace.sh")

@@ -28,7 +28,7 @@ bspc config presel_feedback_color "$color14"
 ~/.fehbg &
 
 # Compositors
-#pgrep -x picom > /dev/null || picom &
+pgrep -x picom > /dev/null || picom &
 pgrep -x flashfocus > /dev/null || flashfocus &
 
 # Polybar

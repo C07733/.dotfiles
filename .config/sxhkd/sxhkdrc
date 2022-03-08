@@ -6,7 +6,7 @@ super + Return
 
 # Program launcher
 super + space
-	findex	
+	rofi -show run	
 
 # Reload sxhkdrc and config files
 super + r
