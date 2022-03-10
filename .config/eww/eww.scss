@@ -6,17 +6,22 @@
 
 window {
   background: $background;
+  padding: 10px;
 }
 
 .bar {
   font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 14pt;
   color: $foreground;
+  
+  padding-right: 1em;
+
   border-bottom: 3px solid $color8;
+  border: 3px solid $color8; 
 }
 
 .icon-module {
-  margin: 0.3em 0em 0.3em 0.3em; /*top-right-bottom-left*/
+  margin: 0.3em 0em 0.3em 1em; /*top-right-bottom-left*/
 
   padding-right: 0.3em;
   background-color: $color0;
@@ -36,7 +41,6 @@ window {
 
   .icon-module__icon {
     background-color: $color2;
-    padding-top: 0em;
     color: $background;
     font-family: "JetBrainsMono Nerd Font";
     }
@@ -118,7 +122,7 @@ window {
 
 .applaunch {
   background-color: $background;
-  margin: 0.3em 0em 0.3em 0em;
+  margin: 0.3em 0em 0.3em 0.3em;
   
   .icon-module__icon {
     background-color: $background; 
@@ -158,14 +162,14 @@ window {
 
 .workspaces {
   font-family: "JetBrainsMono Nerd Font";
-  margin: 0.25em;
+  margin-left: 0.2em;
+
   font-size: 15pt;
    
-  margin-right: 0px;
   background-color: $color0;
 
   button {
-      padding: 0.1em 0.2em 0.1em 0.2em;
+      padding: 0em 0.2em 0em 0.2em;
   }
   .occupied {
     color: $color7;

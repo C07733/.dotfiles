@@ -9,7 +9,6 @@
        :orientation "h"
        :space-evenly false
        :halign "start"
-       :spacing 9
     (workspaces)
     (microphone)
     (volume)
@@ -20,7 +19,6 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
-       :spacing 9
        (time)))
 
 (defwidget end []
@@ -28,8 +26,7 @@
        :orientation "h" 
        :space-evenly false 
        :halign "end"
-       :spacing 9
-    (brightness)
+      (brightness)
     (updates)
     (ram)
     (cpu)
@@ -39,10 +36,10 @@
   :monitor 0
   :windowtype "dock"
   :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
+                      :y "10px"
+                      :width "99%"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "36px")
+  :reserve (struts :side "top" :distance "50px")
   (bar))
 
 ; Variables foldstart
