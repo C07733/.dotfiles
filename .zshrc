@@ -46,17 +46,22 @@ alias mount='mount | column -t'
 alias h='history'
 alias j='jobs -l'
 
-alias vi='nvim'
-alias vim='nvim'
+alias vi='\nvim'
+alias vim='\nvim'
 
-alias e='nvim'
-alias se='doas nvim'
+alias e='\nvim'
+alias se='doas \nvim'
+
+alias nvim='echo Use "e"'
 
 alias cd='z'
 
 alias cat='pygmentize -g'
 
-alias copy='\cat $1 | xclip -sel c'
+alias clip='\xclip -sel c'
+alias copy='\xclip -sel c'
+
+alias pacman='powerpill'
 
 alias discord='discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy & disown'
 

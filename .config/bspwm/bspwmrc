@@ -47,7 +47,7 @@ bspc rule -a mpv state=floating sticky=on follow=off focus=on
 
 bspc rule -a feh state=floating sticky=off follow=off center=true rectangle=640x360+0+0
 
-bspc rule -a firefox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
+bspc rule -a Waterfox:Toolkit sticky=on state=floating rectangle=480x270+1424+38
 
 bspc rule -a 'YouTube Music' sticky=on state=floating rectangle=990x660+10+38
 

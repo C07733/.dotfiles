@@ -56,7 +56,7 @@ do
 	if [[ ${listOfDesktops[$i]} != ${listOfDesktops[$((i + 1))]} ]]; then
 		if [ $biggestY -eq 0 ]; then
 			#echo Z\| No icon found.
-			chosenIcon=""
+			chosenIcon="Z"
 		fi
 		# echo $biggestY $chosenIcon 
 		iconizedDesktop+=($chosenIcon)
